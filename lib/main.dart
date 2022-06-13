@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:truck_scale/presentation/resources/string_manager.dart';
@@ -11,6 +12,13 @@ void main() => BlocOverrides.runZoned(
         WidgetsFlutterBinding.ensureInitialized();
 
         runApp(const MyApp());
+        doWhenWindowReady(() {
+          const initialSize = Size(600, 450);
+          appWindow.minSize = initialSize;
+          appWindow.size = initialSize;
+          appWindow.alignment = Alignment.center;
+          appWindow.show();
+        });
       },
       blocObserver: MyBlocObserver(),
     );

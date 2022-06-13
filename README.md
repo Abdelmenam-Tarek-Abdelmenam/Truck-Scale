@@ -3,4 +3,3 @@
 truck scale app
 
 
-flutter create --platforms windows --org oreca.dev.truckscale .
