@@ -1,3 +1,3 @@
-const String tableName = "";
+const String _tableName = "";
 
 class DbRepository {}
