@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../view/main_view/main_view.dart';
+import '../view/main_view.dart';
 
 class Routes {
   static const String mainRoute = "/";

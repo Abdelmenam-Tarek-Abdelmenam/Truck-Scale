@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   # desktop designs
   bitsdojo_window: ^0.1.2
-  desktop: ^3.1.5
+  desktop: ^3.1.5 # https://adrianos42.github.io/desktop/#/
   # database
   drift: ^1.7.0
   sqlite3_flutter_libs: ^0.5.0
@@ -25,9 +25,10 @@ dependencies:
   # bloc
   flutter_bloc: ^8.0.1
   bloc: ^8.0.3
+  equatable: ^2.0.3
   #styles
   google_fonts: ^3.0.1
-
+  flutter_screenutil: ^5.5.3+2
 
 dev_dependencies:
   flutter_test:
@@ -39,14 +40,5 @@ flutter:
 
   uses-material-design: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
-
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-
+  assets:
+    - assets/images/

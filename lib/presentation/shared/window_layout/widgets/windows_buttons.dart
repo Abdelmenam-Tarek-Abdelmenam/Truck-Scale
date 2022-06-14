@@ -1,6 +1,6 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:truck_scale/presentation/resources/theme_manager.dart';
+import 'package:truck_scale/presentation/resources/theme/theme_manager.dart';
 
 class WindowButtons extends StatefulWidget {
   const WindowButtons({Key? key}) : super(key: key);

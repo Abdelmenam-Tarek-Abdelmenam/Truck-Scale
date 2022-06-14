@@ -1,3 +1,3 @@
-const String _tableName = "";
-
-class DbRepository {}
+// const String _tableName = "";
+//
+// class DbRepository {}
