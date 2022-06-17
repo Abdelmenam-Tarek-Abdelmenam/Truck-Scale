@@ -5,7 +5,7 @@ import 'package:truck_scale/presentation/view/clients_view/client_view.dart';
 import 'package:truck_scale/presentation/view/home_view/home_view.dart';
 import 'package:truck_scale/presentation/view/records_view/records_view.dart';
 import 'package:truck_scale/presentation/view/reports_veiw/reports_view.dart';
-import 'package:truck_scale/presentation/view/setting_view/rsetting_view.dart';
+import 'package:truck_scale/presentation/view/setting_view/setting_view.dart';
 import 'package:truck_scale/presentation/view/vehicles_view/vehicles_view.dart';
 
 import '../../presentation/resources/string_manager.dart';

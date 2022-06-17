@@ -12,11 +12,10 @@ import 'presentation/resources/routes_manger.dart';
 void main() => BlocOverrides.runZoned(
       () async {
         WidgetsFlutterBinding.ensureInitialized();
-        print("main run");
 
         runApp(const MyApp());
         doWhenWindowReady(() {
-          appWindow.minSize = const Size(720, 720);
+          appWindow.minSize = const Size(1024, 720);
           appWindow.size = const Size(1024, 720);
           appWindow.alignment = Alignment.center;
           appWindow.show();

@@ -14,7 +14,7 @@ extension LayoutWidget on ActiveLayout {
   Widget get getWidget {
     switch (this) {
       case ActiveLayout.home:
-        return HomeView();
+        return const HomeView();
       case ActiveLayout.records:
         return RecordsView();
       case ActiveLayout.vehicles:

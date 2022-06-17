@@ -6,6 +6,7 @@ part "color_manager.dart";
 part "font_manager.dart";
 
 ThemeData lightThemeData = ThemeData(
+  dividerColor: ColorManager.mainBlue.withOpacity(0.5),
   backgroundColor: ColorManager.lightYellow,
   splashFactory: InkRipple.splashFactory,
   scaffoldBackgroundColor: ColorManager.lightYellow,
@@ -26,10 +27,12 @@ ThemeData lightThemeData = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
     backgroundColor: MaterialStateProperty.all(ColorManager.mainBlue),
+    fixedSize: MaterialStateProperty.all(Size(100.w, 30.h)),
     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10.0),
     )),
+    textStyle: MaterialStateProperty.all(_textTheme.button),
     foregroundColor: MaterialStateProperty.all(ColorManager.darkWhite),
   )),
   outlinedButtonTheme: OutlinedButtonThemeData(

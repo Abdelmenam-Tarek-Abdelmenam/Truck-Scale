@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 
 import '../../../../data/modules/records.dart';
+import '../../../resources/styles_manager.dart';
 
 class RecordDesign extends StatelessWidget {
   final Record record;
@@ -12,7 +14,6 @@ class RecordDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(record.type.icon);
     return Row(
       children: [
         Expanded(
@@ -20,8 +21,8 @@ class RecordDesign extends StatelessWidget {
             height: height + 10,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+                topLeft: StyleManager.radius10,
+                bottomLeft: StyleManager.radius10,
               ),
               color: Theme.of(context).colorScheme.onBackground,
               border: Border.all(
@@ -31,49 +32,32 @@ class RecordDesign extends StatelessWidget {
             child: Row(children: [
               Container(
                 width: 70.w,
-                padding: const EdgeInsets.all(10),
+                padding: PaddingManager.p10,
                 child: SvgPicture.asset(
                   record.type.icon,
                   height: height,
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              Expanded(
-                child: Text(
-                  record.id,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 24.sp),
-                ),
-              ),
+              defaultText(context: context, text: record.id),
               line(context),
-              Expanded(
-                child: Text(
-                  record.carPlate,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.normal),
-                ),
-              ),
+              defaultText(
+                  context: context,
+                  text: record.carPlate,
+                  size: 22.sp,
+                  fontWeight: FontWeight.normal),
               Expanded(
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: record.weight.toString(),
+                    text: record.weight.toInt().toString(),
                     style: Theme.of(context)
                         .textTheme
                         .headline3!
                         .copyWith(fontSize: 30.sp),
                     children: <TextSpan>[
                       TextSpan(
-                          text: "00  ",
+                          text: ".00  ",
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 20.sp)),
                       TextSpan(
@@ -84,31 +68,17 @@ class RecordDesign extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                child: Text(
-                  record.materialName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.normal),
-                ),
-              ),
+              defaultText(
+                  context: context,
+                  text: record.materialName,
+                  size: 20.sp,
+                  fontWeight: FontWeight.normal),
               line(context),
-              Expanded(
-                child: Text(
-                  record.date,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.caption!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w100),
-                ),
-              ),
+              defaultText(
+                  context: context,
+                  text: record.date,
+                  size: 18.sp,
+                  fontWeight: FontWeight.w100),
             ]),
           ),
         ),
@@ -117,12 +87,30 @@ class RecordDesign extends StatelessWidget {
     );
   }
 
+  Widget defaultText(
+          {required BuildContext context,
+          required String text,
+          FontWeight? fontWeight,
+          double? size}) =>
+      Expanded(
+        child: Text(
+          text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(
+              color: Theme.of(context).colorScheme.primary,
+              fontWeight: fontWeight,
+              fontSize: size ?? 24.sp),
+        ),
+      );
+
   Widget iconBox(BuildContext context) => Container(
       height: height + 10,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
-          topRight: Radius.circular(10),
-          bottomRight: Radius.circular(10),
+          topRight: StyleManager.radius10,
+          bottomRight: StyleManager.radius10,
         ),
         color: Theme.of(context).colorScheme.onBackground.withOpacity(0.2),
         border: Border.all(
@@ -165,10 +153,6 @@ class RecordDesign extends StatelessWidget {
 
   Widget line(BuildContext context) => SizedBox(
         height: height + 10,
-        child: VerticalDivider(
-          color: Theme.of(context).primaryColor.withOpacity(0.5),
-          thickness: 2,
-          width: 2,
-        ),
+        child: Dividers.verticalLine,
       );
 }

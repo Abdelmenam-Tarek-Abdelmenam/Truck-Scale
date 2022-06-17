@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../resources/asstes_manager.dart';
 import '../../../resources/string_manager.dart';
+import '../../../resources/styles_manager.dart';
 
 class InfoDialog extends StatelessWidget {
   const InfoDialog({Key? key}) : super(key: key);
@@ -12,17 +14,15 @@ class InfoDialog extends StatelessWidget {
     return Container(
       height: 220,
       width: 350,
-      padding: const EdgeInsets.all(10),
+      padding: PaddingManager.p10,
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onBackground,
-          borderRadius: BorderRadius.circular(20)),
+          borderRadius: StyleManager.border),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           appBar(context),
-          const SizedBox(
-            height: 10,
-          ),
+          Dividers.h10,
           Text(
             StringManger.description,
             style: Theme.of(context)
@@ -30,9 +30,7 @@ class InfoDialog extends StatelessWidget {
                 .button!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.w900),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          Dividers.h10,
           Text(
             StringManger.version,
             style: Theme.of(context)
@@ -40,9 +38,7 @@ class InfoDialog extends StatelessWidget {
                 .button!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          Dividers.h10,
           Text(
             StringManger.copyRights,
             style: Theme.of(context)
@@ -50,9 +46,7 @@ class InfoDialog extends StatelessWidget {
                 .button!
                 .copyWith(fontSize: 14, fontWeight: FontWeight.w200),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          Dividers.h10,
           bottomBar(context)
         ],
       ),
@@ -72,7 +66,7 @@ class InfoDialog extends StatelessWidget {
                 width: 40,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(width: 10),
+              Dividers.w10,
               Text(
                 StringManger.appName,
                 style: Theme.of(context)
@@ -103,7 +97,7 @@ class InfoDialog extends StatelessWidget {
             StringManger.poweredBy,
             style: Theme.of(context).textTheme.headline3,
           ),
-          const SizedBox(width: 10),
+          Dividers.w10,
           InkWell(
             onTap: () async {
               final Uri url = Uri.parse('https://oreca.tech/');

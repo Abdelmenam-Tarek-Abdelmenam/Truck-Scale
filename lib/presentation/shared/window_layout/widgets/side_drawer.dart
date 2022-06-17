@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:truck_scale/bloc/layout_bloc/layout_bloc.dart';
+import 'package:truck_scale/presentation/resources/styles_manager.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 
 import '../../../resources/asstes_manager.dart';
 import '../../../resources/string_manager.dart';
@@ -12,14 +14,13 @@ class SideDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: PaddingManager.p10,
       child: Column(
         children: [
           header(context),
-          const SizedBox(height: 10),
+          Dividers.h10,
           Expanded(child: BlocBuilder<LayoutBloc, ActiveLayout>(
             builder: (context, state) {
-              print(state);
               return Column(
                 children: ActiveLayout.values
                     .map((e) => tileDesign(context, e, state))
@@ -50,7 +51,7 @@ class SideDrawer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(width: 10),
+              Dividers.w10,
               Icon(
                 e.getIcon,
                 size: 25,
@@ -58,7 +59,7 @@ class SideDrawer extends StatelessWidget {
                     ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).colorScheme.onSurface,
               ),
-              const SizedBox(width: 10),
+              Dividers.w10,
               Text(
                 e.getString,
                 style: Theme.of(context).textTheme.subtitle2!.copyWith(
@@ -79,7 +80,7 @@ class SideDrawer extends StatelessWidget {
             width: 50,
             fit: BoxFit.contain,
           ),
-          const SizedBox(width: 10),
+          Dividers.w10,
           Text(
             StringManger.appName,
             style:
@@ -96,9 +97,9 @@ class SideDrawer extends StatelessWidget {
               builder: (_) {
                 return const Dialog(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                    borderRadius: StyleManager.border,
+                  ),
                   child: InfoDialog(),
-                  //  contentPadding: const EdgeInsets.all(0.0),
                 );
               });
         },
@@ -110,7 +111,7 @@ class SideDrawer extends StatelessWidget {
               size: 25,
               color: Theme.of(context).colorScheme.onSecondary,
             ),
-            const SizedBox(width: 5),
+            Dividers.w5,
             Text(
               StringManger.about,
               style:

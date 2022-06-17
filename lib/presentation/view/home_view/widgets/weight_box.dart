@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:truck_scale/presentation/resources/string_manager.dart';
+import 'package:truck_scale/presentation/resources/styles_manager.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/part_text.dart';
 
 // ignore: must_be_immutable
@@ -15,18 +18,18 @@ class WeightBox extends StatelessWidget {
           child: Container(
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
+                  topLeft: StyleManager.radius10,
                 ),
                 color: Theme.of(context).primaryColor,
               ),
               height: 330.h,
-              padding: const EdgeInsets.all(15.0),
+              padding: PaddingManager.p15,
               child: Stack(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      "Weight",
+                      StringManger.weight,
                       style: Theme.of(context).textTheme.headline2,
                     ),
                   ),
@@ -59,7 +62,7 @@ class WeightBox extends StatelessWidget {
                     child: Row(
                       children: [
                         weightSwitch(context),
-                        Text("Truck Weight Only",
+                        Text(StringManger.truckWeightOnly,
                             style: Theme.of(context).textTheme.headline4)
                       ],
                     ),
@@ -83,21 +86,19 @@ class WeightBox extends StatelessWidget {
             height: 330.h,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(10),
+                topRight: StyleManager.radius10,
               ),
               color: Theme.of(context).colorScheme.onBackground,
             ),
             child: Column(
-              children: [
-                const Expanded(
-                    child: PartText("Truck weight", "140", ".00", "Kg")),
-                Divider(
-                  height: 2,
-                  thickness: 2,
-                  color: Theme.of(context).primaryColor,
-                ),
-                const Expanded(
-                    child: PartText("Material  weight", "10", ".00", "Kg")),
+              children: const [
+                Expanded(
+                    child:
+                        PartText(StringManger.truckWeight, "140", ".00", "Kg")),
+                Dividers.horizontalLine,
+                Expanded(
+                    child: PartText(
+                        StringManger.materialWeight, "10", ".00", "Kg")),
               ],
             ),
           ),

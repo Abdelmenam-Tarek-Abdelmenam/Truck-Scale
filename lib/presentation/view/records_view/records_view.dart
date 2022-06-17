@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:truck_scale/presentation/resources/styles_manager.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/records_view/widgets/record_design.dart';
 
 import '../../../data/modules/records.dart';
@@ -22,13 +24,13 @@ class RecordsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: PaddingManager.p10,
         child: Scrollbar(
           child: ListView.separated(
               itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: RecordDesign(records[index])),
-              separatorBuilder: (_, __) => const SizedBox(height: 10),
+              separatorBuilder: (_, __) => Dividers.h10,
               itemCount: records.length),
         ),
       ),

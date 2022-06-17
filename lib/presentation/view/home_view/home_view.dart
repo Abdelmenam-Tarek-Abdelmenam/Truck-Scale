@@ -1,35 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/part_text.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/weight_box.dart';
+import '../../resources/string_manager.dart';
+import '../../resources/styles_manager.dart';
 
 import '../../shared/widget/form_field.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+      padding: PaddingManager.p10,
       child: Column(
         children: [
           Container(
             decoration: decoration(context).copyWith(
-                boxShadow: shadow, color: Theme.of(context).backgroundColor),
+                boxShadow: StyleManager.bigShadow,
+                color: Theme.of(context).backgroundColor),
             child: Column(
               children: [
                 WeightBox(),
-                SizedBox(height: 10.h),
+                Dividers.h10,
                 truckBox(context),
-                SizedBox(height: 10.h),
+                Dividers.h10,
                 vehicleBox(context),
               ],
             ),
           ),
-          SizedBox(height: 30.h),
+          Dividers.h20,
           inputBox(context),
-          SizedBox(height: 20.h),
+          Dividers.h20,
           lowerBox(context),
         ],
       ),
@@ -43,43 +47,43 @@ class HomeView extends StatelessWidget {
             child: Container(
                 decoration: decoration(context),
                 height: 80.h,
-                padding: const EdgeInsets.all(10.0),
+                padding: PaddingManager.p8,
                 child: Row(
                   children: [
                     Text(
-                      "Truck",
+                      StringManger.truck,
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    const SizedBox(width: 10),
+                    Dividers.w10,
                     Expanded(
                       child: DefaultFormField(
                           isTransparent: true,
                           controller: TextEditingController(),
-                          title: "Plate Number",
+                          title: StringManger.plateNumber,
                           prefix: Icons.fire_truck_outlined),
                     ),
                   ],
                 )),
           ),
-          const SizedBox(width: 10),
+          Dividers.w10,
           Expanded(
             flex: 3,
             child: Container(
                 height: 80.h,
                 decoration: decoration(context),
-                padding: const EdgeInsets.all(10.0),
+                padding: PaddingManager.p8,
                 child: Row(
                   children: [
                     Text(
-                      "Material",
+                      StringManger.material,
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    const SizedBox(width: 10),
+                    Dividers.w10,
                     Expanded(
                       child: DefaultFormField(
                           isTransparent: true,
                           controller: TextEditingController(),
-                          title: "Material name or code",
+                          title: StringManger.materialName,
                           prefix: Icons.search),
                     ),
                   ],
@@ -95,22 +99,22 @@ class HomeView extends StatelessWidget {
             child: Container(
                 decoration: decoration(context),
                 height: 80.h,
-                padding: const EdgeInsets.all(10.0),
+                padding: PaddingManager.p8,
                 child: Row(
                   children: [
                     Text(
-                      "Material price per Kg",
+                      StringManger.materialPrice,
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    const SizedBox(width: 10),
+                    Dividers.w10,
                     Expanded(
                       child: DefaultFormField(
                           isTransparent: true,
                           controller: TextEditingController(),
-                          title: "Material Price",
+                          title: StringManger.materialPrice,
                           prefix: Icons.money),
                     ),
-                    const SizedBox(width: 10),
+                    Dividers.w10,
                     Text(
                       "EGP",
                       style: Theme.of(context)
@@ -121,25 +125,25 @@ class HomeView extends StatelessWidget {
                   ],
                 )),
           ),
-          const SizedBox(width: 10),
+          Dividers.w10,
           Expanded(
             flex: 1,
             child: Container(
                 height: 80.h,
                 decoration: decoration(context),
-                padding: const EdgeInsets.all(10.0),
+                padding: PaddingManager.p8,
                 child: Row(
                   children: [
                     Text(
-                      "Previous Ticket Number",
+                      StringManger.prevTicket,
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    const SizedBox(width: 10),
+                    Dividers.w10,
                     Expanded(
                       child: DefaultFormField(
                           isTransparent: true,
                           controller: TextEditingController(),
-                          title: "Ticket Number",
+                          title: StringManger.ticketNumber,
                           prefix: Icons.airplane_ticket_sharp),
                     ),
                   ],
@@ -154,22 +158,22 @@ class HomeView extends StatelessWidget {
             SizedBox(
               width: 150,
               child: Text(
-                "Driver Information",
+                StringManger.driverInformation,
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
-            const SizedBox(width: 10),
+            Dividers.w10,
             Expanded(
               child: DefaultFormField(
                   controller: TextEditingController(),
-                  title: "Name",
+                  title: StringManger.name,
                   prefix: Icons.person_outline),
             ),
-            const SizedBox(width: 10),
+            Dividers.w10,
             Expanded(
               child: DefaultFormField(
                   controller: TextEditingController(),
-                  title: "Phone",
+                  title: StringManger.phone,
                   prefix: Icons.phone),
             ),
           ],
@@ -180,46 +184,46 @@ class HomeView extends StatelessWidget {
             SizedBox(
               width: 150,
               child: Text(
-                "Client Information",
+                StringManger.clientInformation,
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
-            const SizedBox(width: 10),
+            Dividers.w10,
             Expanded(
               child: DefaultFormField(
                   controller: TextEditingController(),
-                  title: "Name",
+                  title: StringManger.name,
                   prefix: Icons.person_outline),
             ),
-            const SizedBox(width: 10),
+            Dividers.w10,
             Expanded(
               child: DefaultFormField(
                   controller: TextEditingController(),
-                  title: "Phone",
+                  title: StringManger.phone,
                   prefix: Icons.phone),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        Dividers.h10,
         Row(
           children: [
             SizedBox(
               width: 150,
               child: Text(
-                "Notes",
+                StringManger.notes,
                 style: Theme.of(context).textTheme.headline3,
               ),
             ),
-            const SizedBox(width: 10),
+            Dividers.w10,
             Expanded(
               child: DefaultFormField(
                   controller: TextEditingController(),
-                  title: "Notes",
+                  title: StringManger.notes,
                   prefix: Icons.notes),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        Dividers.h10,
       ]);
 
   Widget lowerBox(BuildContext context) => Row(children: [
@@ -228,18 +232,19 @@ class HomeView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            bigIcon("Print", Icons.print_outlined, () {}),
-            bigIcon("Save", Icons.save_outlined, () {}),
-            bigIcon("Add new", Icons.add_box_outlined, () {}),
+            bigIcon(StringManger.print, Icons.print_outlined, () {}),
+            bigIcon(StringManger.save, Icons.save_outlined, () {}),
+            bigIcon(StringManger.add, Icons.add_box_outlined, () {}),
           ],
         )),
         Expanded(
           flex: 1,
           child: Container(
-              decoration: decoration(context).copyWith(boxShadow: shadow),
+              decoration: decoration(context)
+                  .copyWith(boxShadow: StyleManager.bigShadow),
               height: 160.h,
-              child:
-                  const PartText("Total Material Price", "1000", ".00", "EGP")),
+              child: const PartText(
+                  StringManger.totalPrice, "1000", ".00", "EGP")),
         ),
       ]);
 
@@ -253,16 +258,7 @@ class HomeView extends StatelessWidget {
           ));
 
   BoxDecoration decoration(BuildContext context) => BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: StyleManager.border,
         color: Theme.of(context).colorScheme.onBackground,
       );
-
-  final List<BoxShadow> shadow = [
-    BoxShadow(
-      color: Colors.grey.withOpacity(0.8),
-      spreadRadius: 2,
-      blurRadius: 2,
-      offset: const Offset(0, 3), // changes position of shadow
-    ),
-  ];
 }

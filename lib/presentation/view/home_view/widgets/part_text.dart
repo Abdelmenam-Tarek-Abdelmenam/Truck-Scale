@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:truck_scale/presentation/resources/styles_manager.dart';
 
 class PartText extends StatelessWidget {
   final String text1;
@@ -12,7 +13,7 @@ class PartText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: PaddingManager.p15,
       child: Stack(
         children: [
           Align(
