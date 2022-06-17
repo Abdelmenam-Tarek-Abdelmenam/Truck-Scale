@@ -16,7 +16,7 @@ extension LayoutWidget on ActiveLayout {
       case ActiveLayout.home:
         return HomeView();
       case ActiveLayout.records:
-        return const RecordsView();
+        return RecordsView();
       case ActiveLayout.vehicles:
         return const VehiclesView();
       case ActiveLayout.materials:
