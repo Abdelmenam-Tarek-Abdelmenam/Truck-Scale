@@ -5,27 +5,24 @@ final TextTheme _textTheme = TextTheme(
       fontSize: 26.sp,
       fontWeight: FontWeight.bold,
       color: ColorManager.mainYellow),
-  headline2: GoogleFonts.poppins(
-      //used
-      fontSize: 22.sp,
-      fontWeight: FontWeight.w500,
-      color: ColorManager.foreGroundGrey),
-  headline3: GoogleFonts.poppins(
-      //used
-      fontSize: 14.sp,
-      fontWeight: FontWeight.w500,
+  headline2: GoogleFonts.alegreyaSans(
+      fontSize: 22,
+      fontWeight: FontWeight.w800,
       color: ColorManager.whiteColor),
-  headline4: GoogleFonts.roboto(
+  headline3: GoogleFonts.alegreyaSans(
       //used
-      fontSize: 16.sp,
-      fontWeight: FontWeight.w500,
-      color: ColorManager.foreGroundGrey),
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      color: ColorManager.mainBlue),
+  headline4: GoogleFonts.alegreyaSans(
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w700,
+      color: ColorManager.mainYellow),
   caption: GoogleFonts.alegreyaSans(
-      //used
-      fontSize: 16.sp,
+      fontSize: 18.sp,
       fontWeight: FontWeight.w400,
       letterSpacing: 0.4.sp,
-      color: ColorManager.blackColor),
+      color: ColorManager.whiteColor),
 
   subtitle1: GoogleFonts.alegreyaSans(
       fontSize: 22.sp,

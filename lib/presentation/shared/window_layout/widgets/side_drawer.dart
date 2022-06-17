@@ -4,6 +4,7 @@ import 'package:truck_scale/bloc/layout_bloc/layout_bloc.dart';
 
 import '../../../resources/asstes_manager.dart';
 import '../../../resources/string_manager.dart';
+import 'info_dialog.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({Key? key}) : super(key: key);
@@ -33,43 +34,40 @@ class SideDrawer extends StatelessWidget {
   }
 
   Widget tileDesign(BuildContext context, ActiveLayout e, ActiveLayout state) =>
-      Material(
-        color: Colors.transparent,
-        type: MaterialType.transparency,
-        child: InkWell(
-          onTap: () {
-            context.read<LayoutBloc>().add(ChangeActiveLayout(e));
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: state == e
-                  ? Theme.of(context).colorScheme.onBackground
-                  : Colors.transparent,
-            ),
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(width: 10),
-                Icon(
-                  e.getIcon,
-                  size: 25,
-                  color: state == e
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.onSurface,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  e.getString,
-                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                      color: state == e
-                          ? Theme.of(context).colorScheme.primary
-                          : null,
-                      fontSize: 20),
-                ),
-              ],
-            ),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 5.0),
+        child: MaterialButton(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          onPressed: () =>
+              context.read<LayoutBloc>().add(ChangeActiveLayout(e)),
+          height: 50,
+          elevation: 0,
+          color: state == e
+              ? Theme.of(context).colorScheme.onBackground
+              : Theme.of(context).primaryColor,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(width: 10),
+              Icon(
+                e.getIcon,
+                size: 25,
+                color: state == e
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurface,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                e.getString,
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                    color: state == e
+                        ? Theme.of(context).colorScheme.primary
+                        : null,
+                    fontSize: 20),
+              ),
+            ],
           ),
         ),
       );
@@ -92,7 +90,17 @@ class SideDrawer extends StatelessWidget {
 
   Widget trailer(BuildContext context) => InkWell(
         onTap: () {
-          // show Application info dialog
+          // show dialog
+          showDialog(
+              context: context,
+              builder: (_) {
+                return const Dialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: InfoDialog(),
+                  //  contentPadding: const EdgeInsets.all(0.0),
+                );
+              });
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
