@@ -1,23 +1,25 @@
-class Material {
+import '../data_sources/data_base/db_repository.dart';
+
+class MaterialModel {
   int id;
   String name;
   double price;
 
-  Material({
+  MaterialModel({
     required this.id,
     required this.name,
     required this.price,
   });
 
-  factory Material.fromJson(Map<String, dynamic> json) => Material(
-        id: json["id"],
-        name: json["name"],
-        price: json["price"],
+  factory MaterialModel.fromJson(Map<String, dynamic> json) => MaterialModel(
+        id: json[MaterialTable.id],
+        name: json[MaterialTable.name],
+        price: json[MaterialTable.price].toDouble(),
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "price": price,
+  Map<String, dynamic> get toJson => {
+        MaterialTable.id: id,
+        MaterialTable.name: name,
+        MaterialTable.price: price,
       };
 }

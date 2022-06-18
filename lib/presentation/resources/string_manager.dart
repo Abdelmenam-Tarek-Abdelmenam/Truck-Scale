@@ -49,7 +49,16 @@ class StringManger {
   static const view = "View";
   static const delete = "Delete";
   static const type = "Weight Type";
+  static const noRecords = "No Records";
 
+  // vehicle
+  static const noVehicle = "No Vehicles";
+  static const truckModel = "Truck Model";
+
+  // materials
+  static const noMaterial = "No Material";
+  // clients
+  static const noClients = "No Client";
   // home
   static const truck = "Truck";
   static const plateNumber = "Plate Number";
@@ -66,6 +75,7 @@ class StringManger {
   static const clientInformation = "Client Information";
   static const notes = "Notes";
   static const print = "Print";
+  static const edit = "Edit";
   static const save = "Save";
   static const add = "Add new";
   static const date = "Date";

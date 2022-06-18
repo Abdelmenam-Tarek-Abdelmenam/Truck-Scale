@@ -1,5 +1,7 @@
+import '../data_sources/data_base/db_repository.dart';
+
 class Client {
-  String id;
+  int id;
   String name;
   String phone;
   String carPlate;
@@ -12,16 +14,16 @@ class Client {
   });
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
-        id: json["id"],
-        name: json["name"],
-        phone: json["phone"],
-        carPlate: json["carPlate"],
+        id: json[ClientsTable.id],
+        name: json[ClientsTable.name],
+        phone: json[ClientsTable.phone],
+        carPlate: json[ClientsTable.carPlate],
       );
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "phone": phone,
-        "carPlate": carPlate,
+  Map<String, dynamic> get toJson => {
+        ClientsTable.id: id,
+        ClientsTable.name: name,
+        ClientsTable.phone: phone,
+        ClientsTable.carPlate: carPlate,
       };
 }

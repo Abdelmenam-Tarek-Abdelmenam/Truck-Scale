@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:truck_scale/presentation/resources/string_manager.dart';
 import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/records_view/widgets/record_design.dart';
@@ -51,7 +52,8 @@ class RecordsView extends StatelessWidget {
           size: 150.r,
         ),
         Dividers.h10,
-        Text('No Records', style: Theme.of(context).textTheme.headline1!),
+        Text(StringManger.noRecords,
+            style: Theme.of(context).textTheme.headline1!),
       ],
     );
   }
