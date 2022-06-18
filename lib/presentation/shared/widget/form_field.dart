@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../resources/styles_manager.dart';
+
 class DefaultFormField extends StatelessWidget {
   const DefaultFormField(
       {required this.controller,
@@ -35,7 +37,7 @@ class DefaultFormField extends StatelessWidget {
     return Container(
       height: 50.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: StyleManager.border,
         color: isTransparent
             ? Theme.of(context).primaryColor.withOpacity(0.5)
             : Theme.of(context).colorScheme.onBackground,

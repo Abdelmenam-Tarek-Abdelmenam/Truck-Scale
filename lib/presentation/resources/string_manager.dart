@@ -1,4 +1,6 @@
 class StringManger {
+  static const String empty = "";
+
   // application info
   static const String appName = "Truck Scale";
   static const String about = "About App";
@@ -43,6 +45,11 @@ class StringManger {
   static const light = "Light";
   static const dark = "Dark";
 
+  // records
+  static const view = "View";
+  static const delete = "Delete";
+  static const type = "Weight Type";
+
   // home
   static const truck = "Truck";
   static const plateNumber = "Plate Number";
@@ -61,4 +68,27 @@ class StringManger {
   static const print = "Print";
   static const save = "Save";
   static const add = "Add new";
+  static const date = "Date";
+  static const search = "Search For";
+
+  // reports
+  static const graph1 = "Number Of weights ber day";
+  static const graph2 = "Amount of weights ber day";
+  static const printsSector = "Print Reports";
+  static const allRecords = "ALL Records";
+  static const allVehicles = "ALL Vehicles";
+  static const allMaterials = "ALL Materials";
+  static const allClients = "ALL Clients";
+  static const filterRecords = "Filter Records";
+  static const filterVehicles = "Filter Vehicles";
+  static const filterMaterials = "Filter Materials";
+  static const filterClients = "Filter Clients";
+  static const highRecords = "High Weight Records";
+  static const lowRecords = "Low Weight Records";
+  static const highMaterials = "Highest Material";
+  static const lowMaterial = "Lowest Material";
+  static const highVehicles = "Highest Vehicles";
+  static const lowVehicles = "Lowest Vehicles";
+  static const highClients = "Highest Clients";
+  static const lowClients = "Lowest Clients";
 }

@@ -7,6 +7,7 @@ import '../../resources/string_manager.dart';
 import '../../resources/styles_manager.dart';
 
 import '../../shared/widget/form_field.dart';
+import '../../shared/widget/numeric_field.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -108,11 +109,10 @@ class HomeView extends StatelessWidget {
                     ),
                     Dividers.w10,
                     Expanded(
-                      child: DefaultFormField(
-                          isTransparent: true,
-                          controller: TextEditingController(),
-                          title: StringManger.materialPrice,
-                          prefix: Icons.money),
+                      child: NumericField(
+                        TextEditingController(text: '0'),
+                        title: StringManger.materialPrice,
+                      ),
                     ),
                     Dividers.w10,
                     Text(

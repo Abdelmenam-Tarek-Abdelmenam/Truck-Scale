@@ -5,6 +5,7 @@ class Record {
   double weight;
   String carPlate;
   String materialName;
+  String clientName;
   TruckType type;
   String date;
 
@@ -14,6 +15,7 @@ class Record {
       required this.carPlate,
       required this.materialName,
       required this.type,
+      required this.clientName,
       required this.date});
 
   factory Record.fromJson(Map<String, dynamic> json) => Record(
@@ -21,6 +23,7 @@ class Record {
         weight: json["weight"].toDouble(),
         carPlate: json["carPlate"],
         materialName: json["materialName"],
+        clientName: json["clientName"],
         type: TruckType.values[json["type"]],
         date: json["date"],
       );
@@ -32,6 +35,7 @@ class Record {
         "materialName": materialName,
         "type": type.index,
         "date": date,
+        "clientName": clientName,
       };
 }
 

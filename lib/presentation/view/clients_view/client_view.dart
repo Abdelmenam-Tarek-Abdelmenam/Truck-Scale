@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../resources/string_manager.dart';
+import '../../resources/styles_manager.dart';
+import '../../shared/widget/dividers.dart';
+import '../../shared/widget/search_bar.dart';
+
 class ClientsView extends StatelessWidget {
   const ClientsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Text('ClientsView');
+    return Expanded(
+      child: Padding(
+        padding: PaddingManager.p10,
+        child: ListView(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                    child: SearchBar(
+                        controller: TextEditingController(),
+                        title: StringManger.clients)),
+                Dividers.w10,
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text(StringManger.add),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
