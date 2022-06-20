@@ -9,6 +9,7 @@ import 'package:truck_scale/presentation/view/setting_view/widgets/info_sector.d
 import 'package:truck_scale/presentation/view/setting_view/widgets/units_sector.dart';
 
 import '../../resources/string_manager.dart';
+import '../../shared/widget/directions.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class SettingsView extends StatelessWidget {
                       Row(
                         children: LanguageMode.values
                             .map((e) => Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                  padding: PaddingDirection.direction(end: 8.0),
                                   child: ElevatedButton(
                                       style: ButtonStyle(
                                           backgroundColor: getColor(

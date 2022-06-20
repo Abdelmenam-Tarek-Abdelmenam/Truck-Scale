@@ -6,6 +6,7 @@ import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/records_view/widgets/record_design.dart';
 
 import '../../../data/models/records.dart';
+import '../../shared/widget/directions.dart';
 
 class RecordsView extends StatelessWidget {
   RecordsView({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class RecordsView extends StatelessWidget {
               child: Scrollbar(
                 child: ListView.separated(
                     itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 20),
+                        padding: PaddingDirection.direction(end: 20),
                         child: RecordDesign(records[index])),
                     separatorBuilder: (_, __) => Dividers.h10,
                     itemCount: records.length),

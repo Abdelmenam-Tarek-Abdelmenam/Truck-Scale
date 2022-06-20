@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../data/models/client.dart';
 import '../../resources/string_manager.dart';
 import '../../resources/styles_manager.dart';
+import '../../shared/widget/directions.dart';
 import '../../shared/widget/dividers.dart';
 import '../../shared/widget/search_bar.dart';
 import 'widgets/client_design.dart';
@@ -45,7 +46,7 @@ class ClientsView extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 20),
+                        padding: PaddingDirection.direction(end: 20),
                         child: ClientDesign(clients[index])),
                     itemCount: clients.length,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

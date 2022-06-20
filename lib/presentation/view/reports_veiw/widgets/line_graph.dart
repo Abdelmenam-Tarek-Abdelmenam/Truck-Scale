@@ -24,7 +24,6 @@ class LineGraph extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: PaddingManager.p8,
-      padding: const EdgeInsets.only(top: 15, bottom: 0, left: 8, right: 0),
       child: AspectRatio(
         aspectRatio: 2,
         child: LineChart(
@@ -64,12 +63,15 @@ class LineGraph extends StatelessWidget {
               showTitles: true,
               reservedSize: 22,
               interval: scale.toDouble(),
-              getTitlesWidget: (val, _) => Text(
-                val % (scale) == 0 ? "${val.round()}" : '',
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSecondary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12),
+              getTitlesWidget: (val, _) => Padding(
+                padding: PaddingManager.p8,
+                child: Text(
+                  val % (scale) == 0 ? "${val.round()}" : '',
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondary,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12),
+                ),
               ),
             ),
           ),

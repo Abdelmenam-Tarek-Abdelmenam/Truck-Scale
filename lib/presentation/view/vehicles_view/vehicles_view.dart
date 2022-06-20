@@ -7,6 +7,7 @@ import 'package:truck_scale/presentation/shared/widget/search_bar.dart';
 import 'package:truck_scale/presentation/view/vehicles_view/widgets/vehicle_design.dart';
 
 import '../../../data/models/vehicle.dart';
+import '../../shared/widget/directions.dart';
 
 List<Vehicle> vehicles = List.generate(
   100,
@@ -51,7 +52,7 @@ class VehiclesView extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 20),
+                        padding: PaddingDirection.direction(end: 20),
                         child: VehicleDesign(vehicles[index])),
                     itemCount: vehicles.length,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

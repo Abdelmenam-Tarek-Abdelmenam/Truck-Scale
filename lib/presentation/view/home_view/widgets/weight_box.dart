@@ -5,6 +5,8 @@ import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/part_text.dart';
 
+import '../../../shared/widget/directions.dart';
+
 // ignore: must_be_immutable
 class WeightBox extends StatelessWidget {
   WeightBox({Key? key}) : super(key: key);
@@ -17,8 +19,8 @@ class WeightBox extends StatelessWidget {
           flex: 2,
           child: Container(
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: StyleManager.radius10,
+                borderRadius: BorderDirection.direction(
+                  topStart: StyleManager.radius10,
                 ),
                 color: Theme.of(context).primaryColor,
               ),
@@ -59,12 +61,14 @@ class WeightBox extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.bottomLeft,
-                    child: Row(
-                      children: [
-                        weightSwitch(context),
-                        Text(StringManger.truckWeightOnly,
-                            style: Theme.of(context).textTheme.headline4)
-                      ],
+                    child: FittedBox(
+                      child: Row(
+                        children: [
+                          weightSwitch(context),
+                          Text(StringManger.truckWeightOnly,
+                              style: Theme.of(context).textTheme.headline4)
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -85,8 +89,8 @@ class WeightBox extends StatelessWidget {
           child: Container(
             height: 330.h,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topRight: StyleManager.radius10,
+              borderRadius: BorderDirection.direction(
+                topEnd: StyleManager.radius10,
               ),
               color: Theme.of(context).colorScheme.onBackground,
             ),

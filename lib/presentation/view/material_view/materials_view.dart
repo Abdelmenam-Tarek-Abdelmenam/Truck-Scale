@@ -5,6 +5,7 @@ import 'package:truck_scale/presentation/view/material_view/widgets/material_des
 
 import '../../resources/string_manager.dart';
 import '../../resources/styles_manager.dart';
+import '../../shared/widget/directions.dart';
 import '../../shared/widget/dividers.dart';
 import '../../shared/widget/search_bar.dart';
 
@@ -47,7 +48,7 @@ class MaterialsView extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(right: 20),
+                        padding: PaddingDirection.direction(end: 20),
                         child: MaterialDesign(materials[index])),
                     itemCount: materials.length,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

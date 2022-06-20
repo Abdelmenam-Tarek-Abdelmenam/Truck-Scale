@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truck_scale/presentation/resources/string_manager.dart';
 
 import '../../../resources/styles_manager.dart';
+import '../../../shared/widget/directions.dart';
 import '../../../shared/widget/dividers.dart';
 import '../../../shared/widget/numeric_field.dart';
 
@@ -121,7 +122,7 @@ class PrintsSector extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         clickableText(context, text, onPressed),
         Padding(
-          padding: const EdgeInsets.only(right: 8.0),
+          padding: PaddingDirection.direction(end: 8.0),
           child: SizedBox(
             width: 150,
             child: NumericField(

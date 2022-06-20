@@ -6,6 +6,7 @@ import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import '../../../../data/models/records.dart';
 import '../../../resources/string_manager.dart';
 import '../../../resources/styles_manager.dart';
+import '../../../shared/widget/directions.dart';
 
 class RecordDesign extends StatelessWidget {
   final Record record;
@@ -21,9 +22,9 @@ class RecordDesign extends StatelessWidget {
           child: Container(
             height: height + 10,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topLeft: StyleManager.radius10,
-                bottomLeft: StyleManager.radius10,
+              borderRadius: BorderDirection.direction(
+                topStart: StyleManager.radius10,
+                bottomStart: StyleManager.radius10,
               ),
               color: Theme.of(context).colorScheme.onBackground,
               border: Border.all(
@@ -140,9 +141,9 @@ class RecordDesign extends StatelessWidget {
   Widget iconBox(BuildContext context) => Container(
       height: height + 10,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(
-          topRight: StyleManager.radius10,
-          bottomRight: StyleManager.radius10,
+        borderRadius: BorderDirection.direction(
+          topEnd: StyleManager.radius10,
+          bottomEnd: StyleManager.radius10,
         ),
         color: Theme.of(context).colorScheme.onBackground.withOpacity(0.2),
         border: Border.all(
