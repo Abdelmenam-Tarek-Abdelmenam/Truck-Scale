@@ -29,7 +29,6 @@ class RecordsTable {
 
 class VehiclesTable {
   static const String tableName = 'vehicles';
-  static const String id = 'id';
   static const String name = 'name';
   static const String phone = 'phone';
   static const String plate = 'plate';
@@ -66,7 +65,6 @@ PRIMARY KEY("id" AUTOINCREMENT)
 
   static const String _vehicle =
       '''CREATE TABLE  IF NOT EXISTS  "${VehiclesTable.tableName}" (
-        "${VehiclesTable.id}" INTEGER ,
         "${VehiclesTable.name}" TEXT ,
         "${VehiclesTable.plate}" TEXT ,
         "${VehiclesTable.phone}" TEXT ,
