@@ -16,7 +16,6 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("SettingsView.build");
     return Padding(
       padding: PaddingManager.p10,
       child: Column(

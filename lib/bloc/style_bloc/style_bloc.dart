@@ -17,12 +17,10 @@ class StyleBloc extends Bloc<StyleEvent, StyleBlocState> {
   int get languageIndex => state.languageMode.index;
 
   void changeThemeHandler(ChangeThemeEvent event, Emitter emit) {
-    print(event.themeMode);
     emit(state.copyWith(newTheme: event.themeMode));
   }
 
   void changeLanguageHandler(ChangeLanguageEvent event, Emitter emit) {
-    print(event.languageMode);
     emit(state.copyWith(newLanguage: event.languageMode));
   }
 }

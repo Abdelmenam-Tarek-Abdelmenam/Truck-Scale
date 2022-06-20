@@ -29,8 +29,7 @@ class StyleBlocState extends Equatable {
         key: PreferenceKey.themeMode,
         value: newTheme.index,
       );
-    }
-    if (newLanguage != null) {
+    } else if (newLanguage != null) {
       PreferenceRepository.putData(
         key: PreferenceKey.languageMode,
         value: newLanguage.index,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:truck_scale/bloc/contsants_bloc/constants_bloc.dart';
 import 'package:truck_scale/presentation/resources/string_manager.dart';
 import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
@@ -51,7 +53,10 @@ class WeightBox extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                   fontSize: 40.sp)),
                           TextSpan(
-                              text: "Kg",
+                              text: context
+                                  .watch<ConstantsBloc>()
+                                  .state
+                                  .weightUnit,
                               style: TextStyle(
                                   fontWeight: FontWeight.w100,
                                   fontSize: 30.sp)),
@@ -97,12 +102,12 @@ class WeightBox extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                    child:
-                        PartText(StringManger.truckWeight, "140", ".00", "Kg")),
+                    child: PartText(StringManger.truckWeight, "140", ".00",
+                        context.watch<ConstantsBloc>().state.weightUnit)),
                 Dividers.horizontalLine,
                 Expanded(
-                    child: PartText(
-                        StringManger.materialWeight, "10", ".00", "Kg")),
+                    child: PartText(StringManger.materialWeight, "10", ".00",
+                        context.watch<ConstantsBloc>().state.weightUnit)),
               ],
             ),
           ),

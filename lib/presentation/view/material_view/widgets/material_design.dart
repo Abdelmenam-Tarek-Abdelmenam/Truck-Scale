@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truck_scale/data/models/material.dart';
 import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 
+import '../../../../bloc/contsants_bloc/constants_bloc.dart';
 import '../../../resources/string_manager.dart';
 
 class MaterialDesign extends StatelessWidget {
@@ -119,7 +121,7 @@ class MaterialDesign extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16.sp)),
                       TextSpan(
-                          text: "EGP",
+                          text: context.watch<ConstantsBloc>().state.moneyUnit,
                           style: TextStyle(
                               fontWeight: FontWeight.w100, fontSize: 16.sp)),
                     ],
@@ -133,7 +135,7 @@ class MaterialDesign extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
-                  "Kg",
+                  context.watch<ConstantsBloc>().state.weightUnit,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.caption!.copyWith(
                         fontWeight: FontWeight.w100,

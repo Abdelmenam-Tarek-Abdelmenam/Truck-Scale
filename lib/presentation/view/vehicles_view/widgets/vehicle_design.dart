@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 
+import '../../../../bloc/contsants_bloc/constants_bloc.dart';
 import '../../../../data/models/vehicle.dart';
 import '../../../resources/string_manager.dart';
 
@@ -138,7 +140,7 @@ class VehicleDesign extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w500, fontSize: 16.sp)),
                 TextSpan(
-                    text: "Kg",
+                    text: context.watch<ConstantsBloc>().state.weightUnit,
                     style: TextStyle(
                         fontWeight: FontWeight.w100, fontSize: 16.sp)),
               ],

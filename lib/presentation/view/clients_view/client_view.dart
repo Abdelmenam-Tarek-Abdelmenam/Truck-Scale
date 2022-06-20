@@ -62,7 +62,6 @@ class ClientsView extends StatelessWidget {
   }
 
   double getW(double width) {
-    print(width);
     if (width < 730) {
       return 7.h;
     }

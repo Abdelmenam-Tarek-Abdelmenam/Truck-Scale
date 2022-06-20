@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/part_text.dart';
 import 'package:truck_scale/presentation/view/home_view/widgets/weight_box.dart';
+import '../../../bloc/contsants_bloc/constants_bloc.dart';
 import '../../resources/string_manager.dart';
 import '../../resources/styles_manager.dart';
 
@@ -116,7 +118,7 @@ class HomeView extends StatelessWidget {
                     ),
                     Dividers.w10,
                     Text(
-                      "EGP",
+                      context.watch<ConstantsBloc>().state.moneyUnit,
                       style: Theme.of(context)
                           .textTheme
                           .headline3!
@@ -243,7 +245,8 @@ class HomeView extends StatelessWidget {
               decoration: decoration(context)
                   .copyWith(boxShadow: StyleManager.bigShadow),
               height: 160.h,
-              child: PartText(StringManger.totalPrice, "1000", ".00", "EGP")),
+              child: PartText(StringManger.totalPrice, "1000", ".00",
+                  context.watch<ConstantsBloc>().state.moneyUnit)),
         ),
       ]);
 

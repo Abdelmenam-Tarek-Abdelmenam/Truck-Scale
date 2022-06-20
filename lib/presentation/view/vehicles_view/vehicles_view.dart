@@ -26,7 +26,6 @@ class VehiclesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = getW(MediaQuery.of(context).size.width);
-    print(width);
     return Expanded(
       child: Padding(
         padding: PaddingManager.p10,
@@ -78,7 +77,7 @@ class VehiclesView extends StatelessWidget {
     } else if (width < 950) {
       return 3.5.h;
     } else {
-      return 4.h;
+      return 3.8.h;
     }
   }
 

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:truck_scale/presentation/resources/string_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 
+import '../../../../bloc/contsants_bloc/constants_bloc.dart';
 import '../../../resources/styles_manager.dart';
 import '../../../shared/widget/form_field.dart';
 
@@ -11,6 +13,8 @@ class UnitsSector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ConstantsBloc bloc = context.read<ConstantsBloc>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,7 +47,10 @@ class UnitsSector extends StatelessWidget {
                       padding: PaddingManager.p8,
                       child: DefaultFormField(
                           isTransparent: true,
-                          controller: TextEditingController(),
+                          controller: TextEditingController(
+                              text: bloc.state.weightUnit),
+                          onChanged: (text) =>
+                              bloc.add(ChangeWeightUnitEvent(text)),
                           title: StringManger.weightUnit,
                           prefix: Icons.scale),
                     ),
@@ -66,7 +73,10 @@ class UnitsSector extends StatelessWidget {
                       padding: PaddingManager.p8,
                       child: DefaultFormField(
                           isTransparent: true,
-                          controller: TextEditingController(),
+                          controller:
+                              TextEditingController(text: bloc.state.moneyUnit),
+                          onChanged: (text) =>
+                              bloc.add(ChangeMoneyUnitEvent(text)),
                           title: StringManger.moneyUnit,
                           prefix: Icons.money_off),
                     ),
