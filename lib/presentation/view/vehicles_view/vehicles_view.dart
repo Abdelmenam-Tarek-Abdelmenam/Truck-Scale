@@ -24,6 +24,8 @@ class VehiclesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = getW(MediaQuery.of(context).size.width);
+    print(width);
     return Expanded(
       child: Padding(
         padding: PaddingManager.p10,
@@ -38,7 +40,7 @@ class VehiclesView extends StatelessWidget {
                 Dividers.w10,
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text(StringManger.add),
+                  child: Text(StringManger.add),
                 ),
               ],
             ),
@@ -53,15 +55,30 @@ class VehiclesView extends StatelessWidget {
                         child: VehicleDesign(vehicles[index])),
                     itemCount: vehicles.length,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 500,
+                        maxCrossAxisExtent: 550,
                         mainAxisSpacing: 10,
-                        childAspectRatio: 4.h,
+                        childAspectRatio: width,
                         crossAxisSpacing: 10),
                   ),
           ],
         ),
       ),
     );
+  }
+
+  double getW(double width) {
+    if (width < 776) {
+      return 5.5.h;
+    }
+    if (width < 780) {
+      return 2.5.h;
+    } else if (width < 850) {
+      return 3.h;
+    } else if (width < 950) {
+      return 3.5.h;
+    } else {
+      return 4.h;
+    }
   }
 
   Widget noVehicles(BuildContext context) {

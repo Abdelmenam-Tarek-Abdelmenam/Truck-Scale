@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:truck_scale/presentation/resources/style_enums.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:truck_scale/bloc/style_bloc/style_bloc.dart';
+import 'package:truck_scale/bloc/style_bloc/style_enums.dart';
 import 'package:truck_scale/presentation/resources/styles_manager.dart';
 import 'package:truck_scale/presentation/shared/widget/dividers.dart';
 import 'package:truck_scale/presentation/view/setting_view/widgets/database_sector.dart';
@@ -13,6 +15,7 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("SettingsView.build");
     return Padding(
       padding: PaddingManager.p10,
       child: Column(
@@ -66,8 +69,16 @@ class SettingsView extends StatelessWidget {
                                   child: ElevatedButton(
                                       style: ButtonStyle(
                                           backgroundColor: getColor(
-                                              context, "English" == e.text)),
-                                      onPressed: () {},
+                                              context,
+                                              context
+                                                      .read<StyleBloc>()
+                                                      .languageIndex ==
+                                                  e.index)),
+                                      onPressed: () {
+                                        context
+                                            .read<StyleBloc>()
+                                            .add(ChangeLanguageEvent(e));
+                                      },
                                       child: Text(e.text)),
                                 ))
                             .toList(),
@@ -92,8 +103,16 @@ class SettingsView extends StatelessWidget {
                                   child: ElevatedButton(
                                       style: ButtonStyle(
                                           backgroundColor: getColor(
-                                              context, "Light" == e.text)),
-                                      onPressed: () {},
+                                              context,
+                                              context
+                                                      .read<StyleBloc>()
+                                                      .themeIndex ==
+                                                  e.index)),
+                                      onPressed: () {
+                                        context
+                                            .read<StyleBloc>()
+                                            .add(ChangeThemeEvent(e));
+                                      },
                                       child: Text(e.text)),
                                 ))
                             .toList(),

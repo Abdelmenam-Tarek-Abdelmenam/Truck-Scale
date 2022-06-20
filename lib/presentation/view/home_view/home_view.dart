@@ -243,8 +243,7 @@ class HomeView extends StatelessWidget {
               decoration: decoration(context)
                   .copyWith(boxShadow: StyleManager.bigShadow),
               height: 160.h,
-              child: const PartText(
-                  StringManger.totalPrice, "1000", ".00", "EGP")),
+              child: PartText(StringManger.totalPrice, "1000", ".00", "EGP")),
         ),
       ]);
 

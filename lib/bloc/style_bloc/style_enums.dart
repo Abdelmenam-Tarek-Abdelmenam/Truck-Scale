@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:truck_scale/presentation/resources/string_manager.dart';
 
-enum LanguageMode { system, en, ar }
+enum LanguageMode { en, ar }
 
 extension GetLangText on LanguageMode {
   String get text {
@@ -10,8 +10,24 @@ extension GetLangText on LanguageMode {
         return StringManger.en;
       case LanguageMode.ar:
         return StringManger.ar;
-      case LanguageMode.system:
-        return StringManger.system;
+    }
+  }
+
+  TextDirection get textDirection {
+    switch (this) {
+      case LanguageMode.en:
+        return TextDirection.ltr;
+      case LanguageMode.ar:
+        return TextDirection.rtl;
+    }
+  }
+
+  Locale get locale {
+    switch (this) {
+      case LanguageMode.en:
+        return const Locale("en", "");
+      case LanguageMode.ar:
+        return const Locale("ar", "");
     }
   }
 }

@@ -13,7 +13,6 @@ class ClientDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size);
     return Container(
       decoration: BoxDecoration(
           boxShadow: StyleManager.smallShadow,
@@ -81,6 +80,7 @@ class ClientDesign extends StatelessWidget {
   Widget text(BuildContext context, String text, String message,
           {bool thin = false}) =>
       Container(
+        padding: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
             boxShadow: StyleManager.smallShadow,
             borderRadius: StyleManager.border,

@@ -6,7 +6,7 @@ import '../../resources/string_manager.dart';
 import '../../resources/styles_manager.dart';
 import '../../shared/widget/dividers.dart';
 import '../../shared/widget/search_bar.dart';
-import 'widgets/material_design.dart';
+import 'widgets/client_design.dart';
 
 List<Client> clients = List.generate(
     100,
@@ -18,6 +18,8 @@ class ClientsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = getW(MediaQuery.of(context).size.width);
+
     return Expanded(
       child: Padding(
         padding: PaddingManager.p10,
@@ -32,7 +34,7 @@ class ClientsView extends StatelessWidget {
                 Dividers.w10,
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text(StringManger.add),
+                  child: Text(StringManger.add),
                 ),
               ],
             ),
@@ -49,13 +51,29 @@ class ClientsView extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: 500,
                         mainAxisSpacing: 10,
-                        childAspectRatio: 6.h,
+                        childAspectRatio: width,
                         crossAxisSpacing: 10),
                   ),
           ],
         ),
       ),
     );
+  }
+
+  double getW(double width) {
+    print(width);
+    if (width < 730) {
+      return 7.h;
+    }
+    if (width < 780) {
+      return 3.5.h;
+    } else if (width < 850) {
+      return 4.h;
+    } else if (width < 950) {
+      return 4.5.h;
+    } else {
+      return 5.5.h;
+    }
   }
 
   Widget noClients(BuildContext context) {

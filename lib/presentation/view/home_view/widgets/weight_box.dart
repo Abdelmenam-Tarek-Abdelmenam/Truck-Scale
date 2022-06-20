@@ -91,7 +91,7 @@ class WeightBox extends StatelessWidget {
               color: Theme.of(context).colorScheme.onBackground,
             ),
             child: Column(
-              children: const [
+              children: [
                 Expanded(
                     child:
                         PartText(StringManger.truckWeight, "140", ".00", "Kg")),

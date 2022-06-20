@@ -3,16 +3,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferenceKey {
   static const String themeMode = "themeMode";
+  static const String languageMode = "languageMode";
 }
 
 class PreferenceRepository {
   static late SharedPreferences pref;
 
-  static initializePreference() async {
+  static init() async {
     pref = await SharedPreferences.getInstance();
   }
 
-  static void putDataInSharedPreference({
+  static void putData({
     required dynamic value,
     required String key,
   }) {
@@ -31,19 +32,19 @@ class PreferenceRepository {
     }
   }
 
-  static dynamic getDataFromSharedPreference({
+  static dynamic getData({
     required String key,
   }) {
     return pref.get(key);
   }
 
-  static void clearDataFromSharedPreference({
+  static void clearData({
     required String key,
   }) {
     pref.remove(key);
   }
 
-  static void clearAllSharedPreference() {
+  static void clearAll() {
     pref.clear();
   }
 }
